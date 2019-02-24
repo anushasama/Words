@@ -11,7 +11,9 @@ public class FindingWords {
 		 System.out.println("Enter a String: ");
 		 String input = in.nextLine();
 		  
+		   
 		  Boolean realWord = Dictionary.isEnglishWord(input);
+		  
 		  if(realWord) {
 			  System.out.println("Given String exists in dictionary");
 		  } else {

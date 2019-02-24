@@ -22,7 +22,7 @@ public class Dictionary {
         while ((inputLine = in.readLine()) != null) {
         	
         	if ( inputLine.equals(word)) {
-        		System.out.println(inputLine + "  " + word);
+        		//System.out.println(inputLine + "  " + word);
         		status = true;
         		break;
         	}
