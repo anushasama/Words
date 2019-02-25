@@ -11,7 +11,6 @@ public class Permutations {
 				allCombinations.add(str.substring(i, j));
 			}
 		}
-
 	}
 	public static void permutations(String prefixString, String s, Set<String> set) {
 		int n = s.length();
@@ -27,5 +26,4 @@ public class Permutations {
 			}
 		}
 	}
-
 }

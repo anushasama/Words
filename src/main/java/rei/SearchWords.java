@@ -15,7 +15,6 @@ public class SearchWords {
 		String inputStr = sc.nextLine();
 		return inputStr.toLowerCase();
 	}
-
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -61,11 +60,6 @@ public class SearchWords {
 			if (status) {
 				System.out.println(word);
 			}
-
-		});
-		
-		
-	}
-	
-	
+		});	
+	}	
 }

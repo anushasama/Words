@@ -1,9 +1,6 @@
 package rei;
 
 import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,9 +29,7 @@ public class PermutationsTest {
 		assertTrue(!allPermutations.contains(output));
 	
 	}
-	
-	
-	
+
 	@Test
 	public void validCombinations() {
 		Set<String> allCombinations = new HashSet<String>();
@@ -54,6 +49,5 @@ public class PermutationsTest {
 		assertTrue(!allCombinations.contains(output));
 	
 	}
-	
 
 }

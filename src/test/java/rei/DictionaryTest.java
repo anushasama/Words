@@ -1,11 +1,7 @@
 package rei;
 
 import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,6 +31,15 @@ public class DictionaryTest {
 		Dictionary dictionary = new Dictionary();
 		//Boolean status = true;
 		//assertTrue(status);
+		Boolean status = dictionary.isEnglishWord(input);
+		
+		assertTrue(!status);
+	}
+	
+	@Test
+	public void notAlphabets() throws IOException {
+		String input = "^@*^^%&%&%";
+		Dictionary dictionary = new Dictionary();
 		Boolean status = dictionary.isEnglishWord(input);
 		
 		assertTrue(!status);

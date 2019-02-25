@@ -17,9 +17,7 @@ public class SearchWordsTest {
 		System.setIn(in);
 		
 		assertEquals("working", SearchWords.getInput());
-	
 	}
-	
-	
+
 }
 
