@@ -6,43 +6,53 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Dictionary {
-	
-	static boolean isEnglishWord(String word) throws IOException {
-			 
-		Boolean status = false;
-		
-		String dictionaryURL = "https://raw.githubusercontent.com/anushasama/Words/master/src/main/resources/words";
-		
+
+	final static String dictionaryURL = "https://docs.oracle.com/javase/tutorial/collections/interfaces/examples/dictionary.txt";
+
+	static Set<String> dictionaryList = new HashSet<String>();
+
+	Dictionary() throws IOException {
+
+		dictionaryList = getDictionary();
+		for (String s : dictionaryList) {
+		    System.out.println(s);
+		}
+
+	}
+
+	Set<String> getDictionary() throws IOException {
 		URL dictionary = new URL(dictionaryURL);
 		URLConnection dictCon = dictionary.openConnection();
-        BufferedReader in = new BufferedReader(new InputStreamReader(dictCon.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-        	if ( inputLine.equals(word)) {
-        		//System.out.println(inputLine + "  " + word);
-        		status = true;
-        		break;
-        	}
-        }
-       in.close();
-			
-       return status;
-			
+		BufferedReader in = new BufferedReader(new InputStreamReader(dictCon.getInputStream()));
+		String inputLine;
+		while ((inputLine = in.readLine()) != null) {
+			this.dictionaryList.add(in.readLine());
+		}
+		in.close();
+		return dictionaryList;
+
 	}
-	
-	static boolean isEngilsh(String word) {
+
+	static boolean isEnglishWord(String word) throws IOException {
+
 		Boolean status = false;
-		Wiktionary wiktionary = new Wiktionary(DB_PATH, Language.GERMAN);
-		wiktionary.addWiktionary(DB_PATH, Language.English);
-		wiktionary.setWordLanguage(Language.German);
-		List<WiktionaryWord> wordList = wiktionary.getWords(word);
-		
+
+		dictionaryList.contains(word);
+
+		for (String item : dictionaryList) {
+			if (item.equals(word)) {
+				status = true;
+				break;
+			}
+		}
+
 		return status;
-		
+
 	}
-	
-	
-	
+
 }

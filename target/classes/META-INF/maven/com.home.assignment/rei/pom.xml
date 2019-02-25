@@ -6,14 +6,6 @@
   <name>Words</name>
   <description>Finding words in a string</description>
   <!-- https://mvnrepository.com/artifact/org.dbpedia.extraction/wiktionary -->
-<dependencies>
-<!-- https://mvnrepository.com/artifact/de.tudarmstadt.ukp.jwktl/jwktl -->
-<dependency>
-    <groupId>de.tudarmstadt.ukp.jwktl</groupId>
-    <artifactId>jwktl</artifactId>
-    <version>1.0.0</version>
-</dependency>
 
-</dependencies>
   
 </project>
