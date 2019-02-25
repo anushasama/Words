@@ -13,14 +13,13 @@ public class Dictionary {
 			 
 		Boolean status = false;
 		
-		String dictionaryURL = "https://docs.oracle.com/javase/tutorial/collections/interfaces/examples/dictionary.txt";
+		String dictionaryURL = "https://raw.githubusercontent.com/anushasama/Words/master/src/main/resources/words";
 		
 		URL dictionary = new URL(dictionaryURL);
 		URLConnection dictCon = dictionary.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(dictCon.getInputStream()));
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
-        	
         	if ( inputLine.equals(word)) {
         		//System.out.println(inputLine + "  " + word);
         		status = true;
@@ -31,6 +30,17 @@ public class Dictionary {
 			
        return status;
 			
+	}
+	
+	static boolean isEngilsh(String word) {
+		Boolean status = false;
+		Wiktionary wiktionary = new Wiktionary(DB_PATH, Language.GERMAN);
+		wiktionary.addWiktionary(DB_PATH, Language.English);
+		wiktionary.setWordLanguage(Language.German);
+		List<WiktionaryWord> wordList = wiktionary.getWords(word);
+		
+		return status;
+		
 	}
 	
 	
