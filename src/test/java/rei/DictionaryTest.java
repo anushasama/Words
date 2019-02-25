@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import rei.Dictionary;
+
 public class DictionaryTest {
 
 	@Before
@@ -37,9 +39,6 @@ public class DictionaryTest {
 		
 		assertTrue(!status);
 	}
-	
-	
-	
 	
 	
 	@After
