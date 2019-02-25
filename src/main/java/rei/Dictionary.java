@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,18 +15,15 @@ public class Dictionary {
 
 	final static String dictionaryURL = "https://docs.oracle.com/javase/tutorial/collections/interfaces/examples/dictionary.txt";
 
-	static Set<String> dictionaryList = new HashSet<String>();
+	static ArrayList<String> dictionaryList = new ArrayList();
 
 	Dictionary() throws IOException {
 
 		dictionaryList = getDictionary();
-		for (String s : dictionaryList) {
-		    System.out.println(s);
-		}
 
 	}
 
-	Set<String> getDictionary() throws IOException {
+	ArrayList<String> getDictionary() throws IOException {
 		URL dictionary = new URL(dictionaryURL);
 		URLConnection dictCon = dictionary.openConnection();
 		BufferedReader in = new BufferedReader(new InputStreamReader(dictCon.getInputStream()));
@@ -34,21 +32,22 @@ public class Dictionary {
 			this.dictionaryList.add(in.readLine());
 		}
 		in.close();
-		return dictionaryList;
+		ArrayList<String> sortedDictionaryList = new ArrayList<String>(this.dictionaryList);
+		Collections.sort(sortedDictionaryList);
+		return sortedDictionaryList;
 
 	}
 
 	static boolean isEnglishWord(String word) throws IOException {
 
 		Boolean status = false;
-
-		dictionaryList.contains(word);
-
 		for (String item : dictionaryList) {
+
 			if (item.equals(word)) {
 				status = true;
 				break;
 			}
+
 		}
 
 		return status;
