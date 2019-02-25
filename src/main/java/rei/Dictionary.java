@@ -38,7 +38,7 @@ public class Dictionary {
 
 	}
 
-	static boolean isEnglishWord(String word) throws IOException {
+	boolean isEnglishWord(String word) throws IOException {
 
 		Boolean status = false;
 		for (String item : dictionaryList) {

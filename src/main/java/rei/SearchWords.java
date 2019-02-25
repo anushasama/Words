@@ -8,19 +8,13 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class SearchWords {
+	
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		System.out.println("Enter string: ");
-		Scanner sc = new Scanner(System.in);
-		String inputStr = sc.nextLine();
-
-		// Convert string to lowercase
-		String str = inputStr.toLowerCase();
-
+		String str = getInput();
+		
 		// creating a new dictionary object
 		Dictionary dictionary = new Dictionary();
-
-		Thread.sleep(3000);
 
 		SearchWords permutation = new SearchWords();
 
@@ -55,9 +49,15 @@ public class SearchWords {
 			}
 
 		});
-
+		
+		
+	}
+	
+	public static String getInput() {
+		System.out.println("Enter string: ");
+		Scanner sc = new Scanner(System.in);
+		String inputStr = sc.nextLine();
+		return inputStr.toLowerCase();
 	}
 
-	
-	
 }
